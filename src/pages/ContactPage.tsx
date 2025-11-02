@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle, Calendar } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Mail, Phone, MapPin, Send, MessageCircle, Calendar, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
 const faqs = [
   {
@@ -20,26 +20,15 @@ const faqs = [
   },
 ];
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
-  });
+interface ContactPageProps {
+  onNavigate?: (page: string) => void;
+}
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
+export default function ContactPage({ onNavigate }: ContactPageProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+
 
   return (
     <div className="pt-20">
@@ -62,7 +51,49 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="glass rounded-3xl p-8 md:p-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    setIsSubmitting(true);
+                    
+                    try {
+                      const formData = new FormData(e.target as HTMLFormElement);
+                      
+                      // Submit to Formsubmit
+                      const response = await fetch('https://formsubmit.co/contact@hiantechnologies.com', {
+                        method: 'POST',
+                        body: formData
+                      });
+                      
+                      if (response.ok) {
+                        setSubmitStatus('success');
+                        
+                        // Reset form
+                        (e.target as HTMLFormElement).reset();
+                        
+                        // Redirect to thank you page after short delay
+                        setTimeout(() => {
+                          if (onNavigate) {
+                            onNavigate('thankyou');
+                          }
+                        }, 1500);
+                      } else {
+                        setSubmitStatus('error');
+                      }
+                    } catch (error) {
+                      console.error('Form submission error:', error);
+                      setSubmitStatus('error');
+                    } finally {
+                      setIsSubmitting(false);
+                    }
+                  }}
+                  className="space-y-6"
+                >
+                  {/* Hidden fields for Formsubmit configuration */}
+                  <input type="hidden" name="_subject" value="New Contact Form Submission from Hian Technologies" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -72,8 +103,6 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         name="name"
-                        value={formData.name}
-                        onChange={handleChange}
                         required
                         className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors"
                         placeholder="John Doe"
@@ -87,8 +116,6 @@ export default function ContactPage() {
                         type="email"
                         id="email"
                         name="email"
-                        value={formData.email}
-                        onChange={handleChange}
                         required
                         className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors"
                         placeholder="john@example.com"
@@ -105,8 +132,6 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors"
                         placeholder="+91 123 456 7890"
                       />
@@ -118,8 +143,6 @@ export default function ContactPage() {
                       <select
                         id="service"
                         name="service"
-                        value={formData.service}
-                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors"
                       >
                         <option value="">Select a service</option>
@@ -140,8 +163,6 @@ export default function ContactPage() {
                     <textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
                       required
                       rows={6}
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors resize-none"
@@ -149,12 +170,41 @@ export default function ContactPage() {
                     ></textarea>
                   </div>
 
+                  {submitStatus === 'success' && (
+                    <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3">
+                      <CheckCircle className="text-green-500" size={20} />
+                      <span className="text-green-700 font-medium">Message sent successfully! Redirecting...</span>
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3">
+                      <AlertCircle className="text-red-500" size={20} />
+                      <span className="text-red-700 font-medium">Failed to send message. Please try again or contact us directly.</span>
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full gradient-orange-purple text-white py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
+                    disabled={isSubmitting || submitStatus === 'success'}
+                    className="w-full gradient-orange-purple text-white py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    <Send size={20} />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={20} className="animate-spin" />
+                        Sending...
+                      </>
+                    ) : submitStatus === 'success' ? (
+                      <>
+                        <CheckCircle size={20} />
+                        Sent Successfully!
+                      </>
+                    ) : (
+                      <>
+                        <Send size={20} />
+                        Send Message
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
@@ -170,8 +220,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900 mb-1">Email</p>
-                      <a href="mailto:hello@hiantech.com" className="text-gray-600 hover:text-orange-500 transition-colors">
-                        hello@hiantech.com
+                      <a href="mailto:contact@hiantechnologies.com" className="text-gray-600 hover:text-orange-500 transition-colors">
+                        contact@hiantechnologies.com
                       </a>
                     </div>
                   </div>
@@ -182,8 +232,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900 mb-1">Phone</p>
-                      <a href="tel:+911234567890" className="text-gray-600 hover:text-orange-500 transition-colors">
-                        +91 123 456 7890
+                      <a href="tel:+919729007351" className="text-gray-600 hover:text-orange-500 transition-colors">
+                        +91 9729007351
                       </a>
                     </div>
                   </div>

@@ -22,10 +22,17 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
       <div className="max-w-[1600px] mx-auto flex items-center justify-between">
         {/* Logo */}
         <div 
-          className="text-xl md:text-2xl font-bold text-gradient cursor-pointer font-figtree"
+          className="flex items-center gap-3 cursor-pointer"
           onClick={() => onNavigate('home')}
         >
-          Hian Technologies
+          <img 
+            src="/src/assets/logo.jpeg" 
+            alt="Hian Technologies Logo" 
+            className="h-12 w-24 md:h-12 md:w-32 rounded-lg object-cover bg-gradient-to-br from-orange-50 via-amber-50 to-purple-50"
+          />
+          {/* <span className="text-xl md:text-2xl font-bold text-gradient font-figtree">
+            Hian Technologies
+          </span> */}
         </div>
 
         {/* Desktop Navigation - Pill Shape */}
@@ -93,7 +100,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
         </div>
       )}
 
-      <style jsx>{`
+      <style>{`
         @keyframes slideDown {
           from {
             opacity: 0;

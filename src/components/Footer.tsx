@@ -43,13 +43,13 @@ export default function Footer() {
               {/* Left Side - Logo at Bottom Left */}
               <div className="lg:col-span-4 order-2 lg:order-1">
                 <div className="inline-block">
-                  <div className="flex">
-                    <div className="border-2 sm:border-[3px] border-black bg-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4">
-                      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight font-figtree">HIAN</span>
-                    </div>
-                    <div className="border-2 sm:border-[3px] border-l-0 border-black bg-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4">
-                      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight font-figtree">TECH</span>
-                    </div>
+                  <div className="flex items-center gap-4">
+                    <img 
+                      src="/src/assets/foot.jpeg" 
+                      alt="Hian Technologies Logo" 
+                      className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-30 rounded-lg object-cover border-2 border-black"
+                    />
+                   
                   </div>
                 </div>
               </div>
@@ -82,11 +82,11 @@ export default function Footer() {
                     <div>
                       <h3 className="text-base sm:text-lg font-black text-black mb-2 md:mb-3 font-figtree">Contact</h3>
                       <div className="space-y-1.5">
-                        <a href="mailto:info@hiantechnologies.com" className="block text-xs sm:text-sm text-black hover:text-[#FC6D26] transition-colors font-inter break-all">
-                          info@hiantechnologies.com
+                        <a href="mailto:contact@hiantechnologies.com" className="block text-xs sm:text-sm text-black hover:text-[#FC6D26] transition-colors font-inter break-all">
+                          contact@hiantechnologies.com
                         </a>
-                        <a href="tel:+15551234567" className="block text-xs sm:text-sm text-black hover:text-[#FC6D26] transition-colors font-inter">
-                          +1 (555) 123-4567
+                        <a href="tel:+919729007351" className="block text-xs sm:text-sm text-black hover:text-[#FC6D26] transition-colors font-inter">
+                          +91 9729007351
                         </a>
                       </div>
                     </div>
