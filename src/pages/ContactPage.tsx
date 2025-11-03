@@ -146,11 +146,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-orange-500 focus:outline-none transition-colors"
                       >
                         <option value="">Select a service</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="app-development">App Development</option>
-                        <option value="ai-automation">AI Automation</option>
-                        <option value="digital-marketing">Digital Marketing</option>
-                        <option value="branding">Branding & Design</option>
+                        <option value="web-development">Webdevelopment</option>
+                        <option value="app-development">Appdevelopment</option>
+                        <option value="ai-automation">Aiautomation</option>
+                        <option value="digital-marketing">Digitalmarketing</option>
+                        <option value="branding">Brandinganddesign</option>
                         <option value="other">Other</option>
                       </select>
                     </div>

@@ -3,7 +3,7 @@ import { Code, Smartphone, TrendingUp, Bot, MessageCircle, Share2, Palette, Spar
 const services = [
   {
     icon: Code,
-    title: 'Web Development',
+    title: 'Webdevelopment',
     description: 'Transform your digital presence with custom, responsive, and high-performance websites.',
     features: [
       'Custom website design and development',
@@ -17,7 +17,7 @@ const services = [
   },
   {
     icon: Smartphone,
-    title: 'App Development',
+    title: 'Appdevelopment',
     description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
     features: [
       'iOS and Android native apps',
@@ -31,7 +31,7 @@ const services = [
   },
   {
     icon: TrendingUp,
-    title: 'SEO & Performance Marketing',
+    title: 'Seoandperformancemarketing',
     description: 'Data-driven strategies to boost your online visibility and drive organic growth.',
     features: [
       'Technical SEO audits',
@@ -45,7 +45,7 @@ const services = [
   },
   {
     icon: Bot,
-    title: 'AI Automations & Chatbots',
+    title: 'Aiautomationsandchatbots',
     description: 'Intelligent automation solutions that work 24/7 to support your business operations.',
     features: [
       'AI-powered chatbots',
@@ -59,7 +59,7 @@ const services = [
   },
   {
     icon: MessageCircle,
-    title: 'WhatsApp Integration',
+    title: 'Whatsappintegration',
     description: 'Leverage WhatsApp Business API to automate customer engagement and support.',
     features: [
       'WhatsApp Business API setup',
@@ -73,7 +73,7 @@ const services = [
   },
   {
     icon: Share2,
-    title: 'Social Media Marketing',
+    title: 'Socialmediamarketing',
     description: 'Creative campaigns and strategies to build your brand and engage your audience.',
     features: [
       'Social media strategy',
@@ -87,7 +87,7 @@ const services = [
   },
   {
     icon: Palette,
-    title: 'Branding & Graphic Design',
+    title: 'Brandingandgraphicdesign',
     description: 'Create a powerful brand identity that resonates with your target audience.',
     features: [
       'Logo design and branding',
@@ -101,7 +101,7 @@ const services = [
   },
   {
     icon: Sparkles,
-    title: 'AI-Powered Solutions',
+    title: 'Aipoweredsolutions',
     description: 'Next-generation intelligent systems that transform how you operate and serve customers.',
     features: [
       'Custom AI model development',

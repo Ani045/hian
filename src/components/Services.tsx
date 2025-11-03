@@ -4,7 +4,7 @@ import { Code, Smartphone, TrendingUp, Bot, MessageCircle, Share2, Palette, Spar
 const services = [
   {
     icon: Code,
-    title: 'Web Development',
+    title: 'Webdevelopment',
     description: 'We dive deep into your brand, target audience and goals. And translate data into a clear plan with formats that really make an impact.',
     cardColor: 'bg-[#F5F1E8]',
     numberColor: 'text-[#D4C3A0]/20', // Very light beige
@@ -13,7 +13,7 @@ const services = [
   },
   {
     icon: Smartphone,
-    title: 'App Development',
+    title: 'Appdevelopment',
     description: 'We dive deep into your brand, target audience and goals. And translate data into a clear plan with formats that really make an impact.',
     cardColor: 'bg-[#E8F5F1]',
     numberColor: 'text-[#A0D4C0]/20', // Very light green
@@ -22,7 +22,7 @@ const services = [
   },
   {
     icon: TrendingUp,
-    title: 'SEO & Performance Marketing',
+    title: 'Seoandperformancemarketing',
     description: 'We dive deep into your brand, target audience and goals. And translate data into a clear plan with formats that really make an impact.',
     cardColor: 'bg-[#F1E8F5]',
     numberColor: 'text-[#C3A0D4]/20', // Very light purple
@@ -31,7 +31,7 @@ const services = [
   },
   {
     icon: Bot,
-    title: 'AI Automations & Chatbots',
+    title: 'Aiautomationsandchatbots',
     description: 'We dive deep into your brand, target audience and goals. And translate data into a clear plan with formats that really make an impact.',
     cardColor: 'bg-[#E8F1F5]',
     numberColor: 'text-[#A0C3D4]/20', // Very light blue
@@ -40,7 +40,7 @@ const services = [
   },
   {
     icon: MessageCircle,
-    title: 'WhatsApp Integration',
+    title: 'Whatsappintegration',
     description: 'We dive deep into your brand, target audience and goals. And translate data into a clear plan with formats that really make an impact.',
     cardColor: 'bg-[#F5E8F1]',
     numberColor: 'text-[#D4A0C3]/20', // Very light pink
@@ -49,7 +49,7 @@ const services = [
   },
   {
     icon: Share2,
-    title: 'Social Media Marketing',
+    title: 'Socialmediamarketing',
     description: 'We dive deep into your brand, target audience and goals. And translate data into a clear plan with formats that really make an impact.',
     cardColor: 'bg-[#F1F5E8]',
     numberColor: 'text-[#C3D4A0]/20', // Very light lime
@@ -58,7 +58,7 @@ const services = [
   },
   {
     icon: Palette,
-    title: 'Branding & Graphic Design',
+    title: 'Brandingandgraphicdesign',
     description: 'We dive deep into your brand, target audience and goals. And translate data into a clear plan with formats that really make an impact.',
     cardColor: 'bg-[#F8E8E8]',
     numberColor: 'text-[#D4A0A0]/20', // Very light coral
@@ -67,7 +67,7 @@ const services = [
   },
   {
     icon: Sparkles,
-    title: 'AI-Powered Solutions',
+    title: 'Aipoweredsolutions',
     description: 'We dive deep into your brand, target audience and goals. And translate data into a clear plan with formats that really make an impact.',
     cardColor: 'bg-[#E8F8F5]',
     numberColor: 'text-[#A0D4C8]/20', // Very light mint
