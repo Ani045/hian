@@ -3,54 +3,45 @@ import { useEffect, useState } from 'react';
 const clientLogos = [
   {
     name: 'Microsoft',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+    logo: '/IGEHRC-new-logo.webp',
     alt: 'Microsoft'
   },
   {
     name: 'Google',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
+    logo: '/download (1).png',
     alt: 'Google'
   },
   {
     name: 'Apple',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+    logo: '/cf-logo.png',
     alt: 'Apple'
   },
   {
     name: 'Amazon',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
+    logo: '/kuk.png',
     alt: 'Amazon'
   },
   {
     name: 'Netflix',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg',
+    logo: '/royal.avif',
     alt: 'Netflix'
   },
   {
     name: 'Tesla',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg',
+    logo: '/Y-Axis-Logo.webp',
+    alt: 'Tesla'
+  }, {
+    name: 'Tesla',
+    logo: '/download.png',
     alt: 'Tesla'
   },
   {
-    name: 'Spotify',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg',
-    alt: 'Spotify'
-  },
-  {
-    name: 'Adobe',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Adobe_Systems_logo_and_wordmark.svg',
-    alt: 'Adobe'
-  },
-  {
-    name: 'Slack',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg',
-    alt: 'Slack'
-  },
-  {
-    name: 'Dropbox',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Dropbox_Icon.svg',
-    alt: 'Dropbox'
+    name: 'Tesla',
+    logo: '/logo-dark.svg',
+    alt: 'Tesla'
   }
+  
+  
 ];
 
 export default function ClientCarousel() {
