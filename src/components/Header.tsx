@@ -26,7 +26,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
           onClick={() => onNavigate('home')}
         >
           <img 
-            src="/src/assets/logo.jpeg" 
+            src="/logo.jpeg" 
             alt="Hian Technologies Logo" 
             className="h-12 w-24 md:h-12 md:w-32 rounded-lg object-cover bg-gradient-to-br from-orange-50 via-amber-50 to-purple-50"
           />

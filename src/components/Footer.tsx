@@ -45,7 +45,7 @@ export default function Footer() {
                 <div className="inline-block">
                   <div className="flex items-center gap-4">
                     <img 
-                      src="/src/assets/foot.jpeg" 
+                      src="/foot.jpeg" 
                       alt="Hian Technologies Logo" 
                       className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-30 rounded-lg object-cover border-2 border-black"
                     />
@@ -76,7 +76,7 @@ export default function Footer() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
                     
                     {/* Contact Info */}
                     <div>
@@ -89,16 +89,6 @@ export default function Footer() {
                           +91 9729007351
                         </a>
                       </div>
-                    </div>
-
-                    {/* Address */}
-                    <div>
-                      <h3 className="text-base sm:text-lg font-black text-black mb-2 md:mb-3 font-figtree">Address</h3>
-                      <address className="not-italic text-xs sm:text-sm text-black leading-relaxed font-inter">
-                        123 Innovation Drive<br />
-                        Tech Valley, CA 94000<br />
-                        United States
-                      </address>
                     </div>
 
                     {/* Social Media */}
