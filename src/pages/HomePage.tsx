@@ -7,11 +7,15 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import HowWeWork from '../components/HowWeWork';
 import CTA from '../components/CTA';
 
-export default function HomePage() {
+interface HomePageProps {
+  onNavigate?: (page: string) => void;
+}
+
+export default function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div>
-      <Hero />
-      <Services />
+      <Hero onNavigate={onNavigate} />
+      <Services onNavigate={onNavigate} />
       <Clients />
       {/* <Products /> */}
       {/* <Footer /> */}

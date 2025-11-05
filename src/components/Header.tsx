@@ -13,7 +13,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
     { name: 'Home', page: 'home' },
     { name: 'Services', page: 'services' },
     { name: 'About', page: 'about' },
-    { name: 'Products', page: 'home' },
+    // { name: 'Products', page: 'home' },
     { name: 'Contact', page: 'contact' },
   ];
 
@@ -26,7 +26,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
           onClick={() => onNavigate('home')}
         >
           <img 
-            src="/logo.jpeg" 
+            src="/hi-logo.png" 
             alt="Hian Technologies Logo" 
             className="h-12 w-24 md:h-12 md:w-32 rounded-lg object-cover bg-gradient-to-br from-orange-50 via-amber-50 to-purple-50"
           />
@@ -58,7 +58,10 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
         </nav>
 
         {/* CTA Button - Desktop */}
-        <button className="hidden lg:block gradient-orange-purple text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 text-sm hover:shadow-lg font-inter">
+        <button 
+          onClick={() => onNavigate('contact')}
+          className="hidden lg:block gradient-orange-purple text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 text-sm hover:shadow-lg font-inter"
+        >
           Get Free Consultation
         </button>
 
@@ -94,7 +97,13 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               {item.name}
             </button>
           ))}
-          <button className="w-full gradient-orange-purple text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 mt-2 font-inter">
+          <button 
+            onClick={() => {
+              onNavigate('contact');
+              setMobileMenuOpen(false);
+            }}
+            className="w-full gradient-orange-purple text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 mt-2 font-inter"
+          >
             Get Free Consultation
           </button>
         </div>

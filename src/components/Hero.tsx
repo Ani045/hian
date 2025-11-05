@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-export default function HeroAndAbout() {
+interface HeroAndAboutProps {
+  onNavigate?: (page: string) => void;
+}
+
+export default function HeroAndAbout({ onNavigate }: HeroAndAboutProps) {
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [cardTilt, setCardTilt] = useState<{ [key: number]: 'clockwise' | 'anticlockwise' | null }>({});
 
@@ -186,7 +190,10 @@ export default function HeroAndAbout() {
 
               {/* CTA Button - Solid Orange */}
               <div className="pt-4 md:pt-8">
-                <button className="group inline-flex items-center gap-2 md:gap-3 bg-[#FC6D26] hover:bg-[#e85d1a] text-white font-semibold text-sm md:text-lg px-6 md:px-9 py-3 md:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <button 
+                  onClick={() => onNavigate && onNavigate('contact')}
+                  className="group inline-flex items-center gap-2 md:gap-3 bg-[#FC6D26] hover:bg-[#e85d1a] text-white font-semibold text-sm md:text-lg px-6 md:px-9 py-3 md:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
                   Get Free Consultation
                   <span className="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 bg-white/20 rounded-full transition-all duration-300 group-hover:bg-white/30">
                     <svg 

@@ -1,6 +1,10 @@
 import { ArrowRight, Calendar, Zap } from 'lucide-react';
 
-export default function CTA() {
+interface CTAProps {
+  onNavigate?: (page: string) => void;
+}
+
+export default function CTA({ onNavigate }: CTAProps) {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 gradient-orange-purple animate-gradient"></div>
@@ -16,11 +20,17 @@ export default function CTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transition-all hover:scale-105 flex items-center gap-2">
+            <button 
+              onClick={() => onNavigate && onNavigate('contact')}
+              className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transition-all hover:scale-105 flex items-center gap-2"
+            >
               <Calendar size={20} />
               Book a Free Strategy Call
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-orange-600 transition-all hover:scale-105 flex items-center gap-2">
+            <button 
+              onClick={() => onNavigate && onNavigate('contact')}
+              className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-orange-600 transition-all hover:scale-105 flex items-center gap-2"
+            >
               Start Your Digital Transformation
               <ArrowRight size={20} />
             </button>

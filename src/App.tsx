@@ -22,15 +22,15 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'services':
-        return <ServicesPage />;
+        return <ServicesPage onNavigate={setCurrentPage} />;
       case 'about':
-        return <AboutPage />;
+        return <AboutPage onNavigate={setCurrentPage} />;
       case 'contact':
         return <ContactPage onNavigate={setCurrentPage} />;
       case 'thankyou':
         return <ThankYouPage onNavigate={setCurrentPage} />;
       default:
-        return <HomePage />;
+        return <HomePage onNavigate={setCurrentPage} />;
     }
   };
 
@@ -38,7 +38,7 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header currentPage={currentPage} onNavigate={setCurrentPage} />
       <main>{renderPage()}</main>
-      <Footer />
+      <Footer onNavigate={setCurrentPage} />
       <WhatsAppFloat />
     </div>
   );

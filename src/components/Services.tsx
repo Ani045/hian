@@ -76,7 +76,11 @@ const services = [
   },
 ];
 
-export default function Services() {
+interface ServicesProps {
+  onNavigate?: (page: string) => void;
+}
+
+export default function Services({ onNavigate }: ServicesProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -175,9 +179,25 @@ export default function Services() {
                           </p>
                         </div>
 
+                      </div>
+
+                      {/* Right Content - Desktop */}
+                      <div className="relative flex flex-col items-end justify-center space-y-8">
+                        {/* Image */}
+                        <div className="w-full max-w-xs lg:max-w-sm rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl border-3 border-[#FC6D26] transform hover:scale-105 transition-transform duration-500">
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            className="w-full h-32 md:h-40 lg:h-48 object-cover"
+                          />
+                        </div>
+
                         {/* CTA Button - Always visible */}
                         <div className="pt-6">
-                          <button className="group inline-flex items-center gap-3 bg-[#FC6D26] hover:bg-[#e85d1a] text-white font-semibold text-sm md:text-base px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 relative z-10">
+                          <button 
+                            onClick={() => onNavigate && onNavigate('contact')}
+                            className="group inline-flex items-center gap-3 bg-[#FC6D26] hover:bg-[#e85d1a] text-white font-semibold text-sm md:text-base px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 relative z-10"
+                          >
                             More about {service.title.toLowerCase()}
                             <svg 
                               className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" 
@@ -193,18 +213,6 @@ export default function Services() {
                               />
                             </svg>
                           </button>
-                        </div>
-                      </div>
-
-                      {/* Right Content - Desktop */}
-                      <div className="relative flex flex-col items-end justify-center space-y-8">
-                        {/* Image */}
-                        <div className="w-full max-w-xs lg:max-w-sm rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl border-3 border-[#FC6D26] transform hover:scale-105 transition-transform duration-500">
-                          <img
-                            src={service.image}
-                            alt={service.title}
-                            className="w-full h-32 md:h-40 lg:h-48 object-cover"
-                          />
                         </div>
                       </div>
                     </div>
@@ -237,7 +245,7 @@ export default function Services() {
 
                       {/* Service Title - Same heading style for all */}
                       <h3 className="text-2xl md:text-3xl font-black text-black leading-tight">
-                        {service.title.toLowerCase()}
+                        {service.title}
                       </h3>
 
                       {/* Description */}
@@ -252,7 +260,10 @@ export default function Services() {
 
                       {/* CTA Button - Always visible */}
                       <div className="pt-4">
-                        <button className="group inline-flex items-center gap-2 bg-[#FC6D26] hover:bg-[#e85d1a] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-300 shadow-lg transform hover:scale-105 relative z-10">
+                        <button 
+                          onClick={() => onNavigate && onNavigate('contact')}
+                          className="group inline-flex items-center gap-2 bg-[#FC6D26] hover:bg-[#e85d1a] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-300 shadow-lg transform hover:scale-105 relative z-10"
+                        >
                           More about {service.title.toLowerCase()}
                           <svg 
                             className="w-3 h-3 text-white transition-transform duration-300 group-hover:translate-x-1" 

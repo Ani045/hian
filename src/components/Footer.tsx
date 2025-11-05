@@ -1,6 +1,10 @@
 import { Mail, Linkedin } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  onNavigate?: (page: string) => void;
+}
+
+export default function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="relative overflow-hidden">
       {/* CTA Section */}
@@ -11,12 +15,18 @@ export default function Footer() {
           </h2>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6">
-            <button className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 md:gap-3 bg-white hover:bg-gray-100 text-black font-semibold text-sm md:text-base lg:text-lg px-6 md:px-8 py-3 md:py-4 rounded-full border-2 border-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-inter">
+            <button 
+              onClick={() => onNavigate && onNavigate('contact')}
+              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 md:gap-3 bg-white hover:bg-gray-100 text-black font-semibold text-sm md:text-base lg:text-lg px-6 md:px-8 py-3 md:py-4 rounded-full border-2 border-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-inter"
+            >
               <Mail className="w-4 h-4 md:w-5 md:h-5" />
               Contact Us Now
             </button>
             
-            <button className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 md:gap-3 bg-[#FC6D26] hover:bg-[#e85d1a] text-white font-semibold text-sm md:text-base lg:text-lg px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-inter">
+            <button 
+              onClick={() => onNavigate && onNavigate('contact')}
+              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 md:gap-3 bg-[#FC6D26] hover:bg-[#e85d1a] text-white font-semibold text-sm md:text-base lg:text-lg px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-inter"
+            >
               Start Your Project
               <span className="text-lg md:text-xl">🚀</span>
             </button>
@@ -61,18 +71,30 @@ export default function Footer() {
                   {/* Navigation Links */}
                   <div className="mb-6 md:mb-8">
                     <div className="flex flex-wrap gap-2 sm:gap-3">
-                      <a href="#services" className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white hover:bg-gray-50 text-black font-semibold rounded-full border border-gray-200 transition-all duration-300 hover:shadow-md text-xs sm:text-sm font-inter">
+                      <button 
+                        onClick={() => onNavigate && onNavigate('services')}
+                        className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white hover:bg-gray-50 text-black font-semibold rounded-full border border-gray-200 transition-all duration-300 hover:shadow-md text-xs sm:text-sm font-inter"
+                      >
                         Services
-                      </a>
-                      <a href="#products" className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white hover:bg-gray-50 text-black font-semibold rounded-full border border-gray-200 transition-all duration-300 hover:shadow-md text-xs sm:text-sm font-inter">
+                      </button>
+                      <button 
+                        onClick={() => onNavigate && onNavigate('home')}
+                        className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white hover:bg-gray-50 text-black font-semibold rounded-full border border-gray-200 transition-all duration-300 hover:shadow-md text-xs sm:text-sm font-inter"
+                      >
                         Products
-                      </a>
-                      <a href="#about" className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white hover:bg-gray-50 text-black font-semibold rounded-full border border-gray-200 transition-all duration-300 hover:shadow-md text-xs sm:text-sm font-inter">
+                      </button>
+                      <button 
+                        onClick={() => onNavigate && onNavigate('about')}
+                        className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white hover:bg-gray-50 text-black font-semibold rounded-full border border-gray-200 transition-all duration-300 hover:shadow-md text-xs sm:text-sm font-inter"
+                      >
                         About
-                      </a>
-                      <a href="#contact" className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white hover:bg-gray-50 text-black font-semibold rounded-full border border-gray-200 transition-all duration-300 hover:shadow-md text-xs sm:text-sm font-inter">
+                      </button>
+                      <button 
+                        onClick={() => onNavigate && onNavigate('contact')}
+                        className="px-4 sm:px-6 py-1.5 sm:py-2 bg-white hover:bg-gray-50 text-black font-semibold rounded-full border border-gray-200 transition-all duration-300 hover:shadow-md text-xs sm:text-sm font-inter"
+                      >
                         Contact
-                      </a>
+                      </button>
                     </div>
                   </div>
 
